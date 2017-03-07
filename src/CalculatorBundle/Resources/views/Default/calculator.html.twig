@@ -1,0 +1,25 @@
+{% extends '::base.html.twig' %}
+
+{% block title %}Calculator{% endblock %}
+
+{% block body %}
+    <h1>Calculator</h1>
+
+    {% if error is not null %}
+        <p style="color: #f00">{{ error|trans }}</p>
+        <p style="font-style: italic">
+            The expression must contains only numbers and following symbols: plus (+), minus (-), division (/), multiply (*) and point (.) for decimals
+        </p>
+    {% endif %}
+
+    {% if display is not null and sum is not null %}
+        <p>
+            Your expression was: {{ display }}
+        </p>
+    {% endif %}
+    <form action="{{ path('calculator') }}" method="POST">
+        <label for="display"></label>
+        <input type="text" name="display" id="display" value="{{ sum is not null ? sum : display}}">
+        <button type="submit" name="calculate">=</button>
+    </form>
+{% endblock %}

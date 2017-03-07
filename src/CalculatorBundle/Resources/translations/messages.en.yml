@@ -1,0 +1,3 @@
+error:
+    undefined_operator: 'An error occured. There are something not supported in your expression.'
+    not_valid_expression: 'The expression is not valid.'
